@@ -21,8 +21,8 @@ It's recommended to run this project in a virtual environment to manage dependen
 
 1. **Clone the Repository**
   ```
-  git clone [Your Repository URL]
-  cd [Your Project Directory]
+  git clone https://github.com/PorterG2003/pokemon
+  cd pokemon
   ```
 
 2. **Create and Activate Virtual Environment**
