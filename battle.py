@@ -22,7 +22,7 @@ def create_animation(pokemon_name_1, pokemon_name_2, winner_name):
     pokemon_1 = Image.open(io.BytesIO(image_data_1)).convert("RGBA")
     pokemon_1 = pokemon_1.transpose(method=Image.Transpose.FLIP_LEFT_RIGHT)
     pokemon_2 = Image.open(io.BytesIO(image_data_2)).convert("RGBA")
-    crown = Image.open("crown.jpg").convert("RGBA")
+    crown = Image.open("crown.png").convert("RGBA")
 
     num_frames = 40
     frames = []
