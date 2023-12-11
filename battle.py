@@ -22,7 +22,7 @@ def create_animation(pokemon_name_1, pokemon_name_2, winner_name):
     pokemon_1 = Image.open(io.BytesIO(image_data_1)).convert("RGBA")
     pokemon_1 = pokemon_1.transpose(method=Image.Transpose.FLIP_LEFT_RIGHT)
     pokemon_2 = Image.open(io.BytesIO(image_data_2)).convert("RGBA")
-    crown = Image.open("crown.webp").convert("RGBA")
+    crown = Image.open("crown.jpg").convert("RGBA")
 
     num_frames = 40
     frames = []
@@ -58,7 +58,7 @@ def create_animation(pokemon_name_1, pokemon_name_2, winner_name):
                 draw.text(((300 - text_width) / 2, 20), draw_text, (0, 0, 0), font=draw_font)
             else:
                 winner_pokemon = pokemon_1 if winner_name == pokemon_name_1 else pokemon_2
-                crown_resized = crown.resize((int(winner_pokemon.width * 0.6), int(winner_pokemon.height * 0.6)), Image.ANTIALIAS)
+                crown_resized = crown.resize((int(winner_pokemon.width * 0.6), int(winner_pokemon.height * 0.6)), Image.Resampling.LANCZOS)
                 crown_offset_x = offset_x_1 + int(0.2 * winner_pokemon.width) if winner_name == pokemon_name_1 else offset_x_2 + int(0.2 * winner_pokemon.width)
                 crown_offset_y = 30 + offset_y_1 - int(0.6 * winner_pokemon.height) if winner_name == pokemon_name_1 else offset_y_2 - int(0.6 * winner_pokemon.height)
                 new_frame.paste(crown_resized, (crown_offset_x, crown_offset_y), crown_resized)
